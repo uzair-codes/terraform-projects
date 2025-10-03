@@ -1,4 +1,4 @@
-form Projects
+# Terraform Projects
 
 This repository contains multiple Terraform projects that demonstrate Infrastructure as Code (IaC) best practices on AWS.  
 It currently includes:
