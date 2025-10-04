@@ -1,4 +1,4 @@
-reource "aws_security_group" "allow_ssh_jenkins" {
+resource "aws_security_group" "allow_ssh_jenkins" {
   name        = "allow_ssh_jenkins"
   description = "Allow SSH and Jenkins inbound traffic"
   vpc_id      = var.vpc_id
