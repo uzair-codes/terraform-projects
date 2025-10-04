@@ -1,6 +1,6 @@
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "Allow SSH inbound traffic"
+reource "aws_security_group" "allow_ssh_jenkins" {
+  name        = "allow_ssh_jenkins"
+  description = "Allow SSH and Jenkins inbound traffic"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -11,6 +11,14 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks = ["0.0.0.0/0"] # be careful in production
   }
 
+  ingress {
+    description = "Jenkins Web UI"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # consider restricting to your IP
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -19,6 +27,6 @@ resource "aws_security_group" "allow_ssh" {
   }
 
   tags = {
-    Name = "Allow-SSH"
+    Name = "Allow-SSH-Jenkins"
   }
 }
